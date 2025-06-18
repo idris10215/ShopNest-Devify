@@ -122,7 +122,7 @@ const removeCartItem = async (req, res) => {
     );
 
     await cart.save();
-    res.status(200).json({ message: "Item removed from cart", cart });
+    res.status(200).json({ message: "Item removed from the cart", cart });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });
   }
