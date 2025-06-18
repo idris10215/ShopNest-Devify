@@ -7,7 +7,7 @@ const addProduct = async (req, res) => {
     const file = req.file;
 
     if (!name || !price || !material || !size || !color || !stock || !file) {
-      return res.status(400).json({ message: "Please fill all the fields" });
+      return res.status(400).json({ message: "All the fields are required" });
     }
 
     const result = await new Promise((resolve, reject) => {
