@@ -10,6 +10,12 @@ const addToCart = async (req, res) => {
     const product = await Product.findById(productId);
     if (!product) return res.status(404).json({ message: "Product not found" });
 
+    if (qty > product.stock) {
+      return res.status(400).json({
+        message: `Only ${product.stock} items left in stock`,
+      });
+    }
+
     let cart = await Cart.findOne({ user: userId });
 
     if (!cart) {
@@ -31,9 +37,10 @@ const addToCart = async (req, res) => {
 
     await cart.save();
     res.status(200).json({ message: "Product added to cart", cart });
-
   } catch (error) {
-    res.status(500).json({ message: "Error adding to cart", error: error.message });
+    res
+      .status(500)
+      .json({ message: "Error adding to cart", error: error.message });
   }
 };
 
@@ -58,7 +65,9 @@ const getCart = async (req, res) => {
       })),
     });
   } catch (err) {
-    res.status(500).json({ message: "Failed to load cart", error: err.message });
+    res
+      .status(500)
+      .json({ message: "Failed to load cart", error: err.message });
   }
 };
 
@@ -78,8 +87,16 @@ const updateCartItem = async (req, res) => {
     const item = cart.items.find(
       (item) => item.product.toString() === productId
     );
-
     if (!item) return res.status(404).json({ message: "Item not in cart" });
+
+    const product = await Product.findById(productId);
+    if (!product) return res.status(404).json({ message: "Product not found" });
+
+    if (qty > product.stock) {
+      return res.status(400).json({
+        message: `Only ${product.stock} items available for update`,
+      });
+    }
 
     item.quantity = qty;
 
@@ -90,6 +107,7 @@ const updateCartItem = async (req, res) => {
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
+
 
 const removeCartItem = async (req, res) => {
   const userId = req.user._id;
@@ -105,7 +123,6 @@ const removeCartItem = async (req, res) => {
 
     await cart.save();
     res.status(200).json({ message: "Item removed from cart", cart });
-
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });
   }
