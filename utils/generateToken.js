@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 const generateToken = (userId) => {
     if (!userId) {
-        throw new Error("User ID is required to generate a token");
+        throw new Error("User ID is required to generate token");
     }
 
     const token = jwt.sign({ id: userId }, process.env.JWT_SECRET, {
