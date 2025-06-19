@@ -17,10 +17,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use(userRoutes);
-app.use(productRoutes);
-app.use(cartRoutes);
+app.use("/products", productRoutes);
+app.use("/cart", cartRoutes);
 app.use("/orders", orderRoutes);
 
+app.get("/", (req, res) => {
+    res.send("Welcome to the E-commerce API");
+});
 
 const start = async() => {
     await mongoose.connect(process.env.MONGO_URL);

@@ -6,7 +6,7 @@ import {addProduct, getProducts} from '../controllers/product.controller.js';
 
 const router = Router();
 
-router.route("/addProduct").post(protect, adminOnly, upload.single('image'), addProduct);
+router.route("/add").post(protect, adminOnly, upload.single('image'), addProduct);
 
 router.route("/").get(getProducts);
 
