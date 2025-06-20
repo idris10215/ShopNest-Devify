@@ -6,8 +6,7 @@ A scalable, secure, and production-ready RESTful E-commerce backend built with N
 
 ## 🚀 Live API (Render Deployment)
 
-🔗 [https://your-backend-url.onrender.com](https://your-backend-url.onrender.com)  
-_(Replace this with your actual deployed Render URL)_
+🔗 [https://shopnest-devifyx.onrender.com]
 
 ---
 
@@ -52,13 +51,12 @@ No seed script is required — products are added manually using the admin panel
 
 ---
 
-## 🧪 Postman Collection
+### 🧪 Postman Collection
 
-You can test all endpoints using this Postman collection:
+📄 [Download DevifyX Postman Collection (.json)](https://drive.google.com/file/d/1RCih3o0JnEkGOvBr5WwurnrN4AVr9Cr9/view?usp=sharing)
 
-🔗 [Download Postman Collection](https://link-to-your-postman-collection)
+_Import this into Postman to test all endpoints easily._
 
-_(Add your exported `.json` Postman collection link here)_
 
 ---
 
@@ -113,14 +111,7 @@ Certain parts of this project were GPT-assisted for clarity and boilerplate gene
 
 ## 📹 Video Demo
 🎥 Watch Demo Here
-(Upload to Loom / Google Drive / YouTube and replace this link)
-
-
-## Author
-Idris Mohammed
-📧 your.email@example.com
-
-🔗 GitHub: https://github.com/idris-projects
+(https://drive.google.com/file/d/18dCYsKFidPA6b7WyMg7E3LWCZa_DgW56/view?usp=sharing)
 
 ## ✅ Submission Ready
 
